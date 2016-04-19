@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "XMPPFramework.h"
+@interface AppDelegate ()<XMPPStreamDelegate>
 
-@interface AppDelegate ()
+/** 与服务器交互的核心 */
+@property(nonatomic,strong)XMPPStream *xmppStream;
 
 @end
 
@@ -16,30 +19,78 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+   
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+}
+
+#pragma mark - XMPPLogin
+-(void)XMPPLogin
+{
+    //用户登录流程
+    //1.初始化XMPPStream
+    
+    //2.链接服务器(传一个jid)
+    
+    //3.链接成功发送密码
+}
+
+
+#pragma mark - private
+//1.初始化XMPPStream
+-(void)setupXMPPStream
+{
+    //创建XMPPStream对象
+    self.xmppStream = [[XMPPStream alloc] init];
+    //设置代理
+    [self.xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    
+}
+//2.链接服务器(传一个jid)
+-(void)connectToHost
+{
+    //设置jid
+    //resource本机设备类型
+    XMPPJID *myJid = [XMPPJID jidWithUser:@"davidlee" domain:@"localhost" resource:@"iPhone"];
+    self.xmppStream.myJID = myJid;
+    //设置主机地址
+    self.xmppStream.hostName = @"localhost";
+    //设置主机端口号(默认是5222,可以不用)
+    self.xmppStream.hostPort = 5222;
+    //发送链接
+    NSError *error = nil;
+    [self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error];
+}
+
+//3.链接成功发送密码
+-(void)sendPWDToHost
+{
+    NSError *error = nil;
+    [self.xmppStream authenticateWithPassword:@"123456" error:&error];
+}
+
+#pragma mark - XMPPDelegate
+- (void)xmppStreamDidConnect:(XMPPStream *)sender
+{
+    
 }
 
 @end
