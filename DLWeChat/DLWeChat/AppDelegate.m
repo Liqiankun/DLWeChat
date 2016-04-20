@@ -47,10 +47,11 @@
 {
     //用户登录流程
     //1.初始化XMPPStream
-    
+    [self setupXMPPStream];
     //2.链接服务器(传一个jid)
-    
-    //3.链接成功发送密码
+    [self connectToHost];
+    //3.链接成功发送密码(在代理方法中调用)
+    //4.发送一个在线请求给服务器
 }
 
 
@@ -78,6 +79,12 @@
     //发送链接
     NSError *error = nil;
     [self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error];
+    
+    if (error) {
+        NSLog(@"发起连接失败");
+    }else{
+        NSLog(@"发起连接成功");
+    }
 }
 
 //3.链接成功发送密码
@@ -85,12 +92,37 @@
 {
     NSError *error = nil;
     [self.xmppStream authenticateWithPassword:@"123456" error:&error];
+    
+    if (error) {
+        NSLog(@"登录失败");
+    }else{
+        NSLog(@"登录成功");
+    }
 }
 
-#pragma mark - XMPPDelegate
+//4.发送在线的请求
+-(void)sendOnLine
+{
+    XMPPPresence *presence = [XMPPPresence presence];
+    [self.xmppStream sendElement:presence];
+}
+
+#pragma mark - XMPPStreamDelegate
+//连接建立成功
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
 {
-    
+    //连接成功发送密码
+    [self sendPWDToHost];
+}
+//登录成功
+-(void)xmppStreamDidAuthenticate:(XMPPStream *)sender
+{
+    [self sendOnLine];
+}
+//登录失败
+-(void)xmppStream:(XMPPStream *)send didNotAuthenticate:(DDXMLElement *)error
+{
+    NSLog(@"%s--%@",__func__,error);
 }
 
 @end
