@@ -50,6 +50,8 @@
     //用户登录流程
     //1.初始化XMPPStream
     [self setupXMPPStream];
+#warning 断开之前的链接
+    [self.xmppStream disconnect];
     //2.链接服务器(传一个jid)
     [self connectToHost];
     //3.链接成功发送密码(在代理方法中调用)
