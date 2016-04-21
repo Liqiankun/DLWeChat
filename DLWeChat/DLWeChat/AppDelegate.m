@@ -12,6 +12,7 @@
 
 /** 与服务器交互的核心 */
 @property(nonatomic,strong)XMPPStream *xmppStream;
+@property(nonatomic,copy)XMPPLoginResultBlock resultBlock;
 
 @end
 
@@ -43,8 +44,9 @@
 }
 
 #pragma mark - XMPPLogin
--(void)XMPPLogin
+-(void)XMPPLogin:(XMPPLoginResultBlock)resultBlock
 {
+    self.resultBlock = resultBlock;
     //用户登录流程
     //1.初始化XMPPStream
     [self setupXMPPStream];
@@ -60,10 +62,12 @@
 -(void)setupXMPPStream
 {
     //创建XMPPStream对象
-    self.xmppStream = [[XMPPStream alloc] init];
-    //设置代理
-    [self.xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
-    
+    if (!_xmppStream) {
+        self.xmppStream = [[XMPPStream alloc] init];
+        //设置代理
+        [self.xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    }
+  
 }
 //2.链接服务器(传一个jid)
 -(void)connectToHost
@@ -118,11 +122,18 @@
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender
 {
     [self sendOnLine];
+    
+    if (self.resultBlock) {
+        self.resultBlock(XMPPLoginResultSuccess);
+    }
 }
 //登录失败
 -(void)xmppStream:(XMPPStream *)send didNotAuthenticate:(DDXMLElement *)error
 {
     NSLog(@"%s--%@",__func__,error);
+    if (self.resultBlock) {
+        self.resultBlock(XMPPLoginResultFailure);
+    }
 }
 
 @end

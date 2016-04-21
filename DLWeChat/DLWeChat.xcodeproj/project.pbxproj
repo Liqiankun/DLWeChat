@@ -522,11 +522,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA1ABB291CC52154002E168E = {
+		AA07B3691CC910C700E5AC32 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
 				AA1ABC161CC675B1002E168E /* libresolv.tbd */,
 				AA1ABBAB1CC67484002E168E /* libxml2.tbd */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		AA1ABB291CC52154002E168E = {
+			isa = PBXGroup;
+			children = (
 				AA1ABB341CC52154002E168E /* DLWeChat */,
 				AA1ABB4E1CC52154002E168E /* DLWeChatTests */,
 				AA1ABB591CC52154002E168E /* DLWeChatUITests */,
@@ -547,6 +554,7 @@
 		AA1ABB341CC52154002E168E /* DLWeChat */ = {
 			isa = PBXGroup;
 			children = (
+				AA07B3691CC910C700E5AC32 /* Lib */,
 				AA1ABB771CC67358002E168E /* XMPP */,
 				AA1ABB381CC52154002E168E /* AppDelegate.h */,
 				AA1ABB391CC52154002E168E /* AppDelegate.m */,
