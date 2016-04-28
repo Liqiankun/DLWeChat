@@ -8,18 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger,XMPPLoginResultType){
-    XMPPLoginResultSuccess,
-    XMPPLoginResultFailure
-};
 
-typedef void (^XMPPLoginResultBlock)(XMPPLoginResultType reslut);
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
--(void)XMPPLogin:(XMPPLoginResultBlock)resultBlock;
 
 @end
 

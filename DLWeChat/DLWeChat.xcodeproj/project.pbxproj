@@ -159,6 +159,8 @@
 		AA1ABD791CC675C5002E168E /* XMPPMessage+XEP_0308.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABD121CC675C5002E168E /* XMPPMessage+XEP_0308.m */; };
 		AA1ABD7A1CC675C5002E168E /* XMPPMessage+XEP_0333.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABD151CC675C5002E168E /* XMPPMessage+XEP_0333.m */; };
 		AA1ABD7B1CC675C5002E168E /* NSXMLElement+XEP_0335.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABD181CC675C5002E168E /* NSXMLElement+XEP_0335.m */; };
+		AA50F46B1CD0F8BE008BCF2D /* DLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AA50F46A1CD0F8BE008BCF2D /* DLAccount.m */; };
+		AA50F46F1CD255F0008BCF2D /* DLXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA50F46E1CD255F0008BCF2D /* DLXMPPTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -492,6 +494,11 @@
 		AA1ABD171CC675C5002E168E /* NSXMLElement+XEP_0335.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSXMLElement+XEP_0335.h"; sourceTree = "<group>"; };
 		AA1ABD181CC675C5002E168E /* NSXMLElement+XEP_0335.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLElement+XEP_0335.m"; sourceTree = "<group>"; };
 		AA1ABD7C1CC675F3002E168E /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
+		AA50F4691CD0F8BE008BCF2D /* DLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAccount.h; sourceTree = "<group>"; };
+		AA50F46A1CD0F8BE008BCF2D /* DLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAccount.m; sourceTree = "<group>"; };
+		AA50F46D1CD255F0008BCF2D /* DLXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLXMPPTool.h; path = ../DLXMPPTool.h; sourceTree = "<group>"; };
+		AA50F46E1CD255F0008BCF2D /* DLXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLXMPPTool.m; path = ../DLXMPPTool.m; sourceTree = "<group>"; };
+		AA50F4701CD25672008BCF2D /* HMSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,6 +532,8 @@
 		AA07B3691CC910C700E5AC32 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				AA50F4701CD25672008BCF2D /* HMSingleton.h */,
+				AA1ABB771CC67358002E168E /* XMPP */,
 				AA1ABC161CC675B1002E168E /* libresolv.tbd */,
 				AA1ABBAB1CC67484002E168E /* libxml2.tbd */,
 			);
@@ -554,8 +563,9 @@
 		AA1ABB341CC52154002E168E /* DLWeChat */ = {
 			isa = PBXGroup;
 			children = (
+				AA50F46C1CD255DB008BCF2D /* Tool */,
+				AA50F4681CD0F89D008BCF2D /* Model */,
 				AA07B3691CC910C700E5AC32 /* Lib */,
-				AA1ABB771CC67358002E168E /* XMPP */,
 				AA1ABB381CC52154002E168E /* AppDelegate.h */,
 				AA1ABB391CC52154002E168E /* AppDelegate.m */,
 				AA1ABB3B1CC52154002E168E /* ViewController.h */,
@@ -606,7 +616,8 @@
 				AA1ABBEC1CC67566002E168E /* Utilities */,
 				AA1ABB781CC6741E002E168E /* Vendor */,
 			);
-			path = XMPP;
+			name = XMPP;
+			path = ../XMPP;
 			sourceTree = "<group>";
 		};
 		AA1ABB781CC6741E002E168E /* Vendor */ = {
@@ -1477,6 +1488,24 @@
 			path = "XEP-0335";
 			sourceTree = "<group>";
 		};
+		AA50F4681CD0F89D008BCF2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA50F4691CD0F8BE008BCF2D /* DLAccount.h */,
+				AA50F46A1CD0F8BE008BCF2D /* DLAccount.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA50F46C1CD255DB008BCF2D /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AA50F46D1CD255F0008BCF2D /* DLXMPPTool.h */,
+				AA50F46E1CD255F0008BCF2D /* DLXMPPTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1620,6 +1649,7 @@
 				AA1ABD551CC675C5002E168E /* XMPPDateTimeProfiles.m in Sources */,
 				AA1ABB901CC67429002E168E /* DDLog.m in Sources */,
 				AA1ABD781CC675C5002E168E /* NSXMLElement+XEP_0297.m in Sources */,
+				AA50F46F1CD255F0008BCF2D /* DLXMPPTool.m in Sources */,
 				AA1ABD241CC675C5002E168E /* XMPPRosterCoreDataStorage.m in Sources */,
 				AA1ABD631CC675C5002E168E /* XMPPMessageArchiving.m in Sources */,
 				AA1ABD541CC675C5002E168E /* NSDate+XMPPDateTimeProfiles.m in Sources */,
@@ -1645,6 +1675,7 @@
 				AA1ABC001CC67566002E168E /* XMPPSCRAMSHA1Authentication.m in Sources */,
 				AA1ABBFE1CC67566002E168E /* XMPPDigestMD5Authentication.m in Sources */,
 				AA1ABD6B1CC675C5002E168E /* XMPPStreamManagementMemoryStorage.m in Sources */,
+				AA50F46B1CD0F8BE008BCF2D /* DLAccount.m in Sources */,
 				AA1ABD5C1CC675C5002E168E /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				AA1ABD701CC675C5002E168E /* XMPPAutoTime.m in Sources */,
 				AA1ABD481CC675C5002E168E /* XMPPvCardTempEmail.m in Sources */,
