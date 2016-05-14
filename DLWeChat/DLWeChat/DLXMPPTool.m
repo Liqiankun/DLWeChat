@@ -12,7 +12,8 @@
 
 /** 与服务器交互的核心 */
 @property(nonatomic,strong)XMPPStream *xmppStream;
-@property(nonatomic,copy)XMPPLoginResultBlock resultBlock;
+@property(nonatomic,copy)XMPPLoginResultBlock loginResultBlock;
+@property(nonatomic,copy)XMPPRegisterResultBlock registerResultBlock;
 
 @end
 
@@ -32,18 +33,30 @@
 }
 
 #pragma mark - XMPPLogin
--(void)XMPPLogin:(XMPPLoginResultBlock)resultBlock
+-(void)XMPPLogin:(XMPPLoginResultBlock)loginResultBlock
 {
-    self.resultBlock = resultBlock;
+    self.loginResultBlock = loginResultBlock;
     //用户登录流程
-    //1.初始化XMPPStream
-    [self setupXMPPStream];
+//    //1.初始化XMPPStream
+//    [self setupXMPPStream];
 #warning 断开之前的链接
     [self.xmppStream disconnect];
     //2.链接服务器(传一个jid)
     [self connectToHost];
     //3.链接成功发送密码(在代理方法中调用)
     //4.发送一个在线请求给服务器
+}
+
+#pragma mark - XMPPRegister
+-(void)XMPPRegister:(XMPPRegisterResultBlock)registerResultBlock
+{
+    self.registerResultBlock = registerResultBlock;
+    //发送一个"注册的JID"给服务器请求一个长链接
+    [self.xmppStream disconnect];
+    //2.链接服务器(传一个jid)
+    [self connectToHost];
+    //链接成功，发送注册密码
+    
 }
 
 #pragma mark - private
@@ -61,9 +74,20 @@
 //2.链接服务器(传一个jid)
 -(void)connectToHost
 {
-    //设置jid
-    //resource本机设备类型
-    XMPPJID *myJid = [XMPPJID jidWithUser:@"davidlee" domain:@"localhost" resource:@"iPhone"];
+    //1.初始化XMPPStream
+    [self setupXMPPStream];
+    
+    XMPPJID *myJid = nil;
+    if (self.registerOperation) {//设置注册的Jib
+        //设置jid
+        //resource本机设备类型
+        myJid = [XMPPJID jidWithUser:@"davidlee" domain:@"localhost" resource:@"iPhone"];
+    }else{//设置登录的Jib
+        //设置jid
+        //resource本机设备类型
+        myJid = [XMPPJID jidWithUser:@"davidlee" domain:@"localhost" resource:@"iPhone"];
+    }
+  
     self.xmppStream.myJID = myJid;
     //设置主机地址
     self.xmppStream.hostName = @"localhost";
@@ -84,7 +108,12 @@
 -(void)sendPWDToHost
 {
     NSError *error = nil;
-    [self.xmppStream authenticateWithPassword:@"123456" error:&error];
+    
+    if (self.registerOperation) {//发送注册的密码
+        [self.xmppStream authenticateWithPassword:@"123456" error:&error];
+    }else{//发送登录的密码
+        [self.xmppStream authenticateWithPassword:@"123456" error:&error];
+    }
     
     if (error) {
         NSLog(@"登录失败");
@@ -114,8 +143,8 @@
     __weak typeof(self) weakSelf = self;
     //回到主线程
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (weakSelf.resultBlock) {
-            weakSelf.resultBlock(XMPPLoginResultSuccess);
+        if (weakSelf.loginResultBlock) {
+            weakSelf.loginResultBlock(XMPPLoginResultSuccess);
         }
     });
     
@@ -128,8 +157,30 @@
     __weak typeof(self) weakSelf = self;
     //回到主线程
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (weakSelf.resultBlock) {
-            weakSelf.resultBlock(XMPPLoginResultFailure);
+        if (weakSelf.loginResultBlock) {
+            weakSelf.loginResultBlock(XMPPLoginResultFailure);
+        }
+    });
+}
+
+//注册成功
+-(void)xmppStreamDidRegister:(XMPPStream *)sender
+{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (weakSelf.registerResultBlock) {
+            weakSelf.registerResultBlock(XMPPRegisterResultSuccess);
+        }
+    });
+}
+
+//注册失败
+-(void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error
+{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (weakSelf.registerResultBlock) {
+            weakSelf.registerResultBlock(XMPPRegisterResultFailure);
         }
     });
 }
