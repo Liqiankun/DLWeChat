@@ -130,6 +130,7 @@
 }
 
 #pragma mark - XMPPStreamDelegate
+#pragma mark LoginDelegate
 //连接建立成功
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
 {
@@ -162,6 +163,7 @@
         }
     });
 }
+#pragma mark RegisterDelegate
 
 //注册成功
 -(void)xmppStreamDidRegister:(XMPPStream *)sender

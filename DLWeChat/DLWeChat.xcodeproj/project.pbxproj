@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AA1ABB371CC52154002E168E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABB361CC52154002E168E /* main.m */; };
-		AA1ABB3A1CC52154002E168E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABB391CC52154002E168E /* AppDelegate.m */; };
-		AA1ABB3D1CC52154002E168E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABB3C1CC52154002E168E /* ViewController.m */; };
 		AA1ABB401CC52154002E168E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1ABB3E1CC52154002E168E /* Main.storyboard */; };
 		AA1ABB421CC52154002E168E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1ABB411CC52154002E168E /* Assets.xcassets */; };
 		AA1ABB451CC52154002E168E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1ABB431CC52154002E168E /* LaunchScreen.storyboard */; };
@@ -160,7 +158,9 @@
 		AA1ABD7A1CC675C5002E168E /* XMPPMessage+XEP_0333.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABD151CC675C5002E168E /* XMPPMessage+XEP_0333.m */; };
 		AA1ABD7B1CC675C5002E168E /* NSXMLElement+XEP_0335.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1ABD181CC675C5002E168E /* NSXMLElement+XEP_0335.m */; };
 		AA50F46B1CD0F8BE008BCF2D /* DLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = AA50F46A1CD0F8BE008BCF2D /* DLAccount.m */; };
-		AAFB981B1CE70B5000C611F5 /* DLXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB981A1CE70B5000C611F5 /* DLXMPPTool.m */; };
+		AAFB98211CE71B6900C611F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB981E1CE71B6900C611F5 /* AppDelegate.m */; };
+		AAFB98221CE71B6900C611F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB98201CE71B6900C611F5 /* ViewController.m */; };
+		AAFB98261CE71B7400C611F5 /* DLXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB98251CE71B7400C611F5 /* DLXMPPTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,10 +183,6 @@
 /* Begin PBXFileReference section */
 		AA1ABB321CC52154002E168E /* DLWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1ABB361CC52154002E168E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA1ABB381CC52154002E168E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		AA1ABB391CC52154002E168E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AA1ABB3B1CC52154002E168E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AA1ABB3C1CC52154002E168E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AA1ABB3F1CC52154002E168E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA1ABB411CC52154002E168E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA1ABB441CC52154002E168E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -497,8 +493,12 @@
 		AA50F4691CD0F8BE008BCF2D /* DLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAccount.h; sourceTree = "<group>"; };
 		AA50F46A1CD0F8BE008BCF2D /* DLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAccount.m; sourceTree = "<group>"; };
 		AA50F4701CD25672008BCF2D /* HMSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
-		AAFB98191CE70B5000C611F5 /* DLXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLXMPPTool.h; path = DLWeChat/DLXMPPTool.h; sourceTree = SOURCE_ROOT; };
-		AAFB981A1CE70B5000C611F5 /* DLXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLXMPPTool.m; path = DLWeChat/DLXMPPTool.m; sourceTree = SOURCE_ROOT; };
+		AAFB981D1CE71B6900C611F5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AAFB981E1CE71B6900C611F5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AAFB981F1CE71B6900C611F5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AAFB98201CE71B6900C611F5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AAFB98241CE71B7400C611F5 /* DLXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLXMPPTool.h; sourceTree = "<group>"; };
+		AAFB98251CE71B7400C611F5 /* DLXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLXMPPTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,17 +563,10 @@
 		AA1ABB341CC52154002E168E /* DLWeChat */ = {
 			isa = PBXGroup;
 			children = (
-				AA50F46C1CD255DB008BCF2D /* Tool */,
+				AAFB98231CE71B7400C611F5 /* Tool */,
+				AAFB981C1CE71B6900C611F5 /* Controller */,
 				AA50F4681CD0F89D008BCF2D /* Model */,
 				AA07B3691CC910C700E5AC32 /* Lib */,
-				AA1ABB381CC52154002E168E /* AppDelegate.h */,
-				AA1ABB391CC52154002E168E /* AppDelegate.m */,
-				AA1ABB3B1CC52154002E168E /* ViewController.h */,
-				AA1ABB3C1CC52154002E168E /* ViewController.m */,
-				AA1ABB3E1CC52154002E168E /* Main.storyboard */,
-				AA1ABB411CC52154002E168E /* Assets.xcassets */,
-				AA1ABB431CC52154002E168E /* LaunchScreen.storyboard */,
-				AA1ABB461CC52154002E168E /* Info.plist */,
 				AA1ABB351CC52154002E168E /* Supporting Files */,
 			);
 			path = DLWeChat;
@@ -582,6 +575,10 @@
 		AA1ABB351CC52154002E168E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA1ABB3E1CC52154002E168E /* Main.storyboard */,
+				AA1ABB411CC52154002E168E /* Assets.xcassets */,
+				AA1ABB431CC52154002E168E /* LaunchScreen.storyboard */,
+				AA1ABB461CC52154002E168E /* Info.plist */,
 				AA1ABB361CC52154002E168E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1497,11 +1494,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		AA50F46C1CD255DB008BCF2D /* Tool */ = {
+		AAFB981C1CE71B6900C611F5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AAFB98191CE70B5000C611F5 /* DLXMPPTool.h */,
-				AAFB981A1CE70B5000C611F5 /* DLXMPPTool.m */,
+				AAFB981D1CE71B6900C611F5 /* AppDelegate.h */,
+				AAFB981E1CE71B6900C611F5 /* AppDelegate.m */,
+				AAFB981F1CE71B6900C611F5 /* ViewController.h */,
+				AAFB98201CE71B6900C611F5 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AAFB98231CE71B7400C611F5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AAFB98241CE71B7400C611F5 /* DLXMPPTool.h */,
+				AAFB98251CE71B7400C611F5 /* DLXMPPTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1649,7 +1657,7 @@
 				AA1ABD551CC675C5002E168E /* XMPPDateTimeProfiles.m in Sources */,
 				AA1ABB901CC67429002E168E /* DDLog.m in Sources */,
 				AA1ABD781CC675C5002E168E /* NSXMLElement+XEP_0297.m in Sources */,
-				AAFB981B1CE70B5000C611F5 /* DLXMPPTool.m in Sources */,
+				AAFB98261CE71B7400C611F5 /* DLXMPPTool.m in Sources */,
 				AA1ABD241CC675C5002E168E /* XMPPRosterCoreDataStorage.m in Sources */,
 				AA1ABD631CC675C5002E168E /* XMPPMessageArchiving.m in Sources */,
 				AA1ABD541CC675C5002E168E /* NSDate+XMPPDateTimeProfiles.m in Sources */,
@@ -1666,6 +1674,7 @@
 				AA1ABD741CC675C5002E168E /* XMPPAttentionModule.m in Sources */,
 				AA1ABC041CC67566002E168E /* NSNumber+XMPP.m in Sources */,
 				AA1ABD1E1CC675C5002E168E /* XMPPGoogleSharedStatus.m in Sources */,
+				AAFB98211CE71B6900C611F5 /* AppDelegate.m in Sources */,
 				AA1ABD2F1CC675C5002E168E /* XMPPLastActivity.m in Sources */,
 				AA1ABD2C1CC675C5002E168E /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				AA1ABB911CC67429002E168E /* DDTTYLogger.m in Sources */,
@@ -1685,7 +1694,6 @@
 				AA1ABD331CC675C5002E168E /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				AA1ABC061CC67566002E168E /* XMPPConstants.m in Sources */,
 				AA1ABD761CC675C5002E168E /* XMPPMessage+XEP_0280.m in Sources */,
-				AA1ABB3D1CC52154002E168E /* ViewController.m in Sources */,
 				AA1ABD3A1CC675C5002E168E /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				AA1ABD661CC675C5002E168E /* XMPPMessage+XEP_0172.m in Sources */,
 				AA1ABBA81CC6745A002E168E /* DDXMLDocument.m in Sources */,
@@ -1711,6 +1719,7 @@
 				AA1ABBFD1CC67566002E168E /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				AA1ABD4A1CC675C5002E168E /* XMPPvCardTempModule.m in Sources */,
 				AA1ABD3B1CC675C5002E168E /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
+				AAFB98221CE71B6900C611F5 /* ViewController.m in Sources */,
 				AA1ABD461CC675C5002E168E /* XMPPvCardTempAdrTypes.m in Sources */,
 				AA1ABD231CC675C5002E168E /* XMPPRoster.xcdatamodel in Sources */,
 				AA1ABC0F1CC67566002E168E /* DDList.m in Sources */,
@@ -1721,7 +1730,6 @@
 				AA1ABD431CC675C5002E168E /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
 				AA1ABD641CC675C5002E168E /* XMPPURI.m in Sources */,
 				AA1ABD531CC675C5002E168E /* XMPPRegistration.m in Sources */,
-				AA1ABB3A1CC52154002E168E /* AppDelegate.m in Sources */,
 				AA1ABC101CC67566002E168E /* GCDMulticastDelegate.m in Sources */,
 				AA1ABD411CC675C5002E168E /* XMPPvCardCoreDataStorage.m in Sources */,
 				AA1ABD501CC675C5002E168E /* TURNSocket.m in Sources */,
