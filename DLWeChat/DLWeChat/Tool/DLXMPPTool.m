@@ -7,18 +7,11 @@
 //
 
 #import "DLXMPPTool.h"
-#import "XMPPFramework.h"
+
 @interface DLXMPPTool ()<XMPPStreamDelegate>
-#import "XMPPvCardTempModule.h"
-#import "XMPPvCardCoreDataStorage.h"
 /** 与服务器交互的核心 */
 @property(nonatomic,strong)XMPPStream *xmppStream;
-/** 电子名片模块 */
-@property(nonatomic,strong)XMPPvCardTempModule *xmppVCard;
-/** 电子名片数据存储 */
-@property(nonatomic,strong)XMPPvCardCoreDataStorage *xmppVCardStorage;
 /** 电子名片头像模块 */
-@property(nonatomic,strong)XMPPvCardAvatarModule *xmppVCardAvatar;
 @property(nonatomic,copy)XMPPLoginResultBlock loginResultBlock;
 @property(nonatomic,copy)XMPPRegisterResultBlock registerResultBlock;
 

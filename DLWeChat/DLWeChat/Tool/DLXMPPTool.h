@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "XMPPFramework.h"
 
 typedef NS_ENUM(NSUInteger,XMPPLoginResultType){
     XMPPLoginResultSuccess,
@@ -26,6 +26,14 @@ typedef void (^XMPPRegisterResultBlock)(XMPPRegisterResultType reslut);
 
 /** 用于判断是注册还是登录 */
 @property(nonatomic,assign)BOOL registerOperation;
+/** 电子名片模块 */
+@property(nonatomic,strong)XMPPvCardTempModule *xmppVCard;
+/** 电子名片数据存储 */
+@property(nonatomic,strong)XMPPvCardCoreDataStorage *xmppVCardStorage;
+/** 电子名片头像模块 */
+@property(nonatomic,strong)XMPPvCardAvatarModule *xmppVCardAvatar;
+
+
 
 /**
  *  创建单利

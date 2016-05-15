@@ -161,6 +161,7 @@
 		AAFB98211CE71B6900C611F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB981E1CE71B6900C611F5 /* AppDelegate.m */; };
 		AAFB98221CE71B6900C611F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB98201CE71B6900C611F5 /* ViewController.m */; };
 		AAFB98261CE71B7400C611F5 /* DLXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB98251CE71B7400C611F5 /* DLXMPPTool.m */; };
+		AAFB982A1CE827A800C611F5 /* DLUserProfileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFB98291CE827A800C611F5 /* DLUserProfileTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -500,6 +501,8 @@
 		AAFB98241CE71B7400C611F5 /* DLXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLXMPPTool.h; sourceTree = "<group>"; };
 		AAFB98251CE71B7400C611F5 /* DLXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLXMPPTool.m; sourceTree = "<group>"; };
 		AAFB98271CE726DB00C611F5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		AAFB98281CE827A800C611F5 /* DLUserProfileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserProfileTool.h; sourceTree = "<group>"; };
+		AAFB98291CE827A800C611F5 /* DLUserProfileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserProfileTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1512,6 +1515,8 @@
 			children = (
 				AAFB98241CE71B7400C611F5 /* DLXMPPTool.h */,
 				AAFB98251CE71B7400C611F5 /* DLXMPPTool.m */,
+				AAFB98281CE827A800C611F5 /* DLUserProfileTool.h */,
+				AAFB98291CE827A800C611F5 /* DLUserProfileTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1659,6 +1664,7 @@
 				AA1ABD551CC675C5002E168E /* XMPPDateTimeProfiles.m in Sources */,
 				AA1ABB901CC67429002E168E /* DDLog.m in Sources */,
 				AA1ABD781CC675C5002E168E /* NSXMLElement+XEP_0297.m in Sources */,
+				AAFB982A1CE827A800C611F5 /* DLUserProfileTool.m in Sources */,
 				AAFB98261CE71B7400C611F5 /* DLXMPPTool.m in Sources */,
 				AA1ABD241CC675C5002E168E /* XMPPRosterCoreDataStorage.m in Sources */,
 				AA1ABD631CC675C5002E168E /* XMPPMessageArchiving.m in Sources */,

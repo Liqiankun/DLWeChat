@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "DLXMPPTool.h"
+#import "DDTTYLogger.h"
+#import "DDLog.h"
 @interface AppDelegate ()
 
 
@@ -23,6 +25,9 @@
     [[DLXMPPTool shareXMPPTool] XMPPLogin:nil];
     
     DLLog(@"登录成功");
+    
+    //配置XMPP的日志
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
    
     return YES;
 }
