@@ -9,9 +9,16 @@
 #import "DLXMPPTool.h"
 #import "XMPPFramework.h"
 @interface DLXMPPTool ()<XMPPStreamDelegate>
-
+#import "XMPPvCardTempModule.h"
+#import "XMPPvCardCoreDataStorage.h"
 /** 与服务器交互的核心 */
 @property(nonatomic,strong)XMPPStream *xmppStream;
+/** 电子名片模块 */
+@property(nonatomic,strong)XMPPvCardTempModule *xmppVCard;
+/** 电子名片数据存储 */
+@property(nonatomic,strong)XMPPvCardCoreDataStorage *xmppVCardStorage;
+/** 电子名片头像模块 */
+@property(nonatomic,strong)XMPPvCardAvatarModule *xmppVCardAvatar;
 @property(nonatomic,copy)XMPPLoginResultBlock loginResultBlock;
 @property(nonatomic,copy)XMPPRegisterResultBlock registerResultBlock;
 
@@ -69,6 +76,20 @@
         //设置代理 在子线程
         [self.xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     }
+    
+    if (!_xmppVCard) {
+        self.xmppVCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+        self.xmppVCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:self.xmppVCardStorage];
+        //激活
+        [self.xmppVCard activate:self.xmppStream];
+    }
+    
+    if (!_xmppVCardAvatar) {
+        self.xmppVCardAvatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:self.xmppVCard];
+        //激活
+        [self.xmppVCardAvatar activate:self.xmppStream];
+    }
+
     
 }
 //2.链接服务器(传一个jid)
