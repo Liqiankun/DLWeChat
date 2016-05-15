@@ -21,6 +21,8 @@
     
     //如果用户已经登录过在这里设置自动登录
     [[DLXMPPTool shareXMPPTool] XMPPLogin:nil];
+    
+    DLLog(@"登录成功");
    
     return YES;
 }
